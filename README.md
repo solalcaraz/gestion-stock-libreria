@@ -1,18 +1,30 @@
-## Getting Started
+# Sistema de Gestión de Stock para Librería
+Este proyecto es una aplicación de consola desarrollada en Java SE que permite gestionar el stock de una librería. Forma parte de mi proceso de aprendizaje en desarrollo backend y fue realizado inicialmente durante un curso de programación. 💻
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
-## Folder Structure
+## Tecnologías utilizadas
+- **Java SE**: lógica del proyecto.
+- **IDE**: IntelliJ.
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Funcionalidades
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- **Creación de usuarios**: Los usuarios pueden crear un usuario, con un nombre y contraseña. Darse de alta e ingresar al sistema.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- **Menú Principal**: Permite agregar productos nuevos, listar productos, modificarlos, eliminarlos y cerrar sesión.
 
-## Dependency Management
+- **Productos**: Cada producto tiene los siguientes datos: un código, un titulo, el autor, la editoril y una cantidad.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- **Listado de productos**: Se van listando los productos que se van creando y almacenando.
+
+- **Cierre de Sesión**: El cierre de sesión lo devuelve al menú inicial donde se puede volver a ingresar iniciando sesión o cerrar el programa.
+
+
+## 🔧 Mejoras en progreso
+Este proyecto está siendo refactorizado. Podés seguir el progreso en las siguientes ramas:
+
+- [`refactor/estructura-codigo`](https://github.com/solalcaraz/Gestion_Stock_Libreria-CAC/tree/main)
+
+---  
+### Autor
+Desarrollado por **Sol Alcaraz** como parte del aprendizaje en **Codo A Codo Inicial | Java**.
