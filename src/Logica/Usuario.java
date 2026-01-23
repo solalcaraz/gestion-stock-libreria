@@ -1,3 +1,5 @@
+package Logica;
+
 // Clase Usuario con sus atributos, su constructor junto con los set y get
 
 /*Dentro de esta clase determino tres metodos para llamar desde la App.

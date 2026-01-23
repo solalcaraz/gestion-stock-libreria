@@ -1,3 +1,5 @@
+package Logica;
+
 //Clase Producto con sus atributos, su constructor junto con los set y get
 
 public class Producto {

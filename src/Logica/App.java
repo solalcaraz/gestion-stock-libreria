@@ -1,10 +1,12 @@
+package Logica;
+
 /* Programa "Control de Stock para librerias".
 
 * Este programa permite gestionar el stock de las librerias.
 *En primer lugar el usuario puede crear un usuario, darse de alta e ingresar a un nuevo menu especifico para los productos.
 *Este menu permite agregar los productos nuevos con los siguientes datos: uncodigo, un titulo, el autor, la editorial
 y una cantidad.
-*El usuario al crearse una cuenta se le pedira un nombre y una contrase√±a con la que puede iniciar sesion. Esto le
+*El usuario al crearse una cuenta se le pedira un nombre y una contraseÒa con la que puede iniciar sesion. Esto le
 permitira al usuario tener una lista de prodcutos que va creando y almacenando.
 *Ademas, el usuario puede modificar los datos ingresados para el producto, esto dentro del menu de Stock. Otras funciones
 que se le permite realizar es el listado completo de su Stock, eliminar algun producto y el cierre de sesion.
@@ -20,13 +22,7 @@ public class App {
 
         //Mostrar menu mientras que no salga del programa (!3)
         do {
-            System.out.println ("###########################");
-            System.out.println("----- MEN√ö INICIAL -----");
-            System.out.println ("###########################");
-            System.out.println("[1]. Crear usuario.");
-            System.out.println("[2]. Iniciar sesi√≥n.");
-            System.out.println("[3]. Salir.");
-            System.out.print("Elige una opci√≥n: ");
+            
             //Leo lo que se ingreso y lo guardo en la variable.
             opcion_menuini = sc.nextInt();
             sc.nextLine();
@@ -54,7 +50,7 @@ public class App {
                     break;
                 default:
                     System.out.println ("---------------------------");
-                    System.out.println("Opci√≥n inv√°lida. Int√©ntalo de nuevo.");
+                    System.out.println("OpciÛn inv·lida. IntÈntalo de nuevo.");
                     System.out.println ("---------------------------");
                     break;
             }
@@ -70,7 +66,7 @@ public class App {
         System.out.print("Ingrese un nombre de usuario: ");
         String nombreUsuario = sc.nextLine();
         System.out.println ("---------------------------");
-        System.out.print ("Ingrese una contrase√±a: ");
+        System.out.print ("Ingrese una contraseÒa: ");
         String contrasena = sc.nextLine();
         System.out.println ("---------------------------");
 
@@ -84,7 +80,7 @@ public class App {
         }
         //Mensaje para la posibilidad que el usuario ya este en uso o si se creo correctamente
         if (nombreExiste){
-            System.out.println ("El nombre de usuario ya est√° en uso. Por favor int√©ntelo con otro.");
+            System.out.println ("El nombre de usuario ya est· en uso. Por favor intÈntelo con otro.");
             crearUsuario(usuarios, sc);
         }else{
             //Almaceno el nuevo usuario en la lista usuarios
@@ -97,16 +93,16 @@ public class App {
     public static Usuario iniciarSesion(List<Usuario> usuarios, Scanner sc){
 
         System.out.println ("###########################");
-        System.out.println("-----INICIAR SESI√ìN-----");
+        System.out.println("-----INICIAR SESI”N-----");
         System.out.println ("###########################");
         System.out.print ("Ingresar usuario: ");
         String nombreUsuario = sc.nextLine();
         System.out.println ("---------------------------");
-        System.out.print ("Ingresar contrase√±a: ");
+        System.out.print ("Ingresar contraseÒa: ");
         String contrasena = sc.nextLine();
         System.out.println ("---------------------------");
 
-        //Corroboro que exista el usuario y que su contrase√±a sea la misma
+        //Corroboro que exista el usuario y que su contraseÒa sea la misma
         Usuario usuarioExiste = null;
         Usuario contrasenaBien = null;
 
@@ -121,17 +117,17 @@ public class App {
         }
         //Si existe inicio sesion
         if (usuarioExiste != null && contrasenaBien !=null ){
-            System.out.println("Sesi√≥n iniciada exitosamente.");
-            System.out.println("¬°Bienvenid@, "+nombreUsuario+"!");
+            System.out.println("SesiÛn iniciada exitosamente.");
+            System.out.println("°Bienvenid@, "+nombreUsuario+"!");
             System.out.println ("---------------------------");
             return usuarioExiste;
         //Para el usuario incorrecto
         }else if (usuarioExiste == null) {
-            System.out.println ("Usuario no encontrado. Int√©ntelo nuevamente o cree un usuario nuevo.");
+            System.out.println ("Usuario no encontrado. IntÈntelo nuevamente o cree un usuario nuevo.");
             return null;
-        //Para contrase√±a incorrecta
+        //Para contraseÒa incorrecta
         }else if (contrasenaBien == null){
-            System.out.println("Contrase√±a incorrecta. Int√©ntelo de nuevo.");
+            System.out.println("ContraseÒa incorrecta. IntÈntelo de nuevo.");
             return null;
         }else {
             return null;
@@ -145,15 +141,7 @@ public class App {
 
         //Mostrar menu mientras que no cierre sesion (!5)
         do {
-            System.out.println ("###########################");
-            System.out.println ("-----MEN√ö: STOCK DE LIBRER√çA-----");
-            System.out.println ("###########################");
-            System.out.println ("[1]. Ingresar productos");  
-            System.out.println ("[2]. Modificar productos");
-            System.out.println ("[3]. Eliminar productos");
-            System.out.println ("[4]. Listar los productos");
-            System.out.println ("[5]. Cerrar sesion");
-            System.out.print ("Elige una opcion: ");
+            
             opcion_menustock = sc.nextInt();
             sc.nextLine();
 
@@ -176,13 +164,13 @@ public class App {
                     menuStock(usuarios, sc, usuarioConectado);
                     break;
                 case 5:
-                    System.out.println ("Sesi√≥n cerrada. Gracias por utilizar la aplicaci√≥n, "+usuarioConectado.getNombreUsuario()+"!");
+                    System.out.println ("SesiÛn cerrada. Gracias por utilizar la aplicaciÛn, "+usuarioConectado.getNombreUsuario()+"!");
                     System.out.println ("---------------------------");
                     usuarioConectado = null;
                     menuInicial(usuarios, sc);
                     break;
                 default:
-                    System.out.println("Opci√≥n inv√°lida. Int√©ntelo de nuevo.");
+                    System.out.println("OpciÛn inv·lida. IntÈntelo de nuevo.");
                     System.out.println ("---------------------------");
                     break;
             }
@@ -223,7 +211,7 @@ public class App {
         System.out.println ("###########################");
         System.out.println ("-----MODIFICAR PRODUCTOS-----");
         System.out.println ("###########################");
-        System.out.print("Ingrese el c√≥digo del producto que desee modificar: ");
+        System.out.print("Ingrese el cÛdigo del producto que desee modificar: ");
         String codigo = sc.nextLine();
         System.out.println ("---------------------------");
 
@@ -233,7 +221,7 @@ public class App {
         if (productoEncontrado != null) {
 
             //Abro un menu de opciones segun lo que quiera modificar
-            System.out.println("Indique lo que desee modificar, seg√∫n la opci√≥n. (T/A/E/C)");
+            System.out.println("Indique lo que desee modificar, seg˙n la opciÛn. (T/A/E/C)");
             System.out.println ("[T]: Modificar titulo.");
             System.out.println ("[A]: Modificar autor.");
             System.out.println ("[E]: Modificar editorial.");
@@ -245,13 +233,13 @@ public class App {
             switch (opcion) {
                 case "T":
                     System.out.println ("Detalles del producto encontrado:");
-                    System.out.println ("El T√çTULO actual es: " +productoEncontrado.getTitulo());
+                    System.out.println ("El TÕTULO actual es: " +productoEncontrado.getTitulo());
                     System.out.println ("-----------------------------");
-                    System.out.println ("Ingrese el nuevo t√≠tulo: ");
+                    System.out.println ("Ingrese el nuevo tÌtulo: ");
                     String titulo = sc.nextLine();
                     productoEncontrado.setTitulo(titulo);
                     System.out.println ("-----------------------------");
-                    System.out.println("Modificaci√≥n exitosa.");
+                    System.out.println("ModificaciÛn exitosa.");
                     break;
                 case "A":
                     System.out.println ("Detalles del producto encontrado.");
@@ -261,7 +249,7 @@ public class App {
                     String autor = sc.nextLine();
                     productoEncontrado.setAutor(autor);
                     System.out.println ("-----------------------------");
-                    System.out.println ("Modificaci√≥n exitosa.");
+                    System.out.println ("ModificaciÛn exitosa.");
                 case "E":
                     System.out.println ("Detalles del producto encontrado.");
                     System.out.println ("La EDITORIAL actual es: " +productoEncontrado.getEditorial());
@@ -270,7 +258,7 @@ public class App {
                     String editorial = sc.nextLine();
                     productoEncontrado.setEditorial(editorial);;
                     System.out.println ("-----------------------------");
-                    System.out.println ("Modificaci√≥n exitosa.");
+                    System.out.println ("ModificaciÛn exitosa.");
                 case "C":
                     System.out.println ("Detalles del producto encontrado.");
                     System.out.println ("La CANTIDAD actual es: " +productoEncontrado.getCantidad());
@@ -280,9 +268,9 @@ public class App {
                     sc.nextLine();
                     productoEncontrado.setCantidad(cantidad);
                     System.out.println ("-----------------------------");
-                    System.out.println ("Modificaci√≥n exitosa.");
+                    System.out.println ("ModificaciÛn exitosa.");
                 default:
-                    System.out.println ("Opci√≥n inv√°lida.");
+                    System.out.println ("OpciÛn inv·lida.");
                     break;
             }
         }else {
