@@ -6,7 +6,7 @@ App de consola en Java para llevar el stock de una librería. Cada usuario tiene
 
 Una librería chica que anota el stock en papel o en una planilla suelta no sabe rápido cuántos ejemplares le quedan de un título, y las correcciones se pierden o se pisan. Hice una herramienta mínima para cargar, corregir, dar de baja y consultar libros desde la terminal, con una cuenta por usuario para que cada uno maneje su inventario.
 
-La empecé en el curso de Java inicial de Codo a Codo y después la retomé para ordenarla y dejarla terminada. El proyecto está cerrado: no tiene más desarrollo previsto.
+Fue mi proyecto final integrador del curso **Codo a Codo 4.0 – Programación Inicial con Java** (julio de 2023). Después lo retomé para pulir detalles.
 
 ## Demo
 
@@ -32,7 +32,7 @@ Creo un usuario, inicio sesión, cargo dos libros, los listo, cambio la cantidad
 
 Decisiones que tomé y por qué:
 
-- **Cada usuario es dueño de su lista de libros.** Es la forma más directa de que cada cuenta vea solo su inventario, sin tablas ni identificadores que relacionen una cosa con otra. La contra es que dos usuarios no pueden compartir stock.
+- **Cada usuario es dueño de su lista de libros.** Es la forma más directa de que cada cuenta vea solo su inventario, sin tablas ni identificadores que relacionen una cosa con otra.
 - **Los datos se guardan en un `.txt` que se puede leer con el Bloc de notas.** Quería poder abrir el archivo y entender qué hay sin otra herramienta. Hay una línea por registro, con los campos separados por tabulación: una coma o un punto y coma aparecen seguido en títulos, una tabulación casi nunca. Cada línea `PRODUCTO` pertenece al último `USUARIO` que aparece arriba, así no repito el nombre en cada libro:
   ```
   USUARIO     sol     1234
@@ -55,19 +55,28 @@ javac -encoding UTF-8 -d out src/logica/*.java
 java -cp out logica.App
 ```
 
-Los datos se guardan en `datos.txt`, en la carpeta desde donde ejecutes el programa. Para empezar de cero, borrá ese archivo. En Windows, si los acentos se ven mal en la consola, ejecutá `chcp 65001` antes de correrlo.
+Los datos se guardan en `datos.txt`, en la carpeta desde donde ejecutes el programa. Para empezar de cero, borrá ese archivo.
+
+Para probarlo con datos cargados, copiá [`datos-ejemplo.txt`](datos-ejemplo.txt) como `datos.txt` antes de ejecutar (`copy datos-ejemplo.txt datos.txt` en Windows, `cp` en Linux/macOS). Trae dos librerías con sus libros, y lo generé con la propia app, cargando todo desde el menú:
+
+| Usuario | Contraseña | Libros |
+|---|---|---|
+| `libreria_centro` | `centro2023` | Rayuela, Ficciones, El túnel, Martín Fierro |
+| `libreria_sur` | `sur2023` | Cien años de soledad, Las cosas que perdimos en el fuego, El Aleph |
 
 ## Qué aprendí y qué mejoraría
 
 **Aprendí:**
 
-- A separar responsabilidades. La primera versión tenía casi todo en una clase de 300 líneas que mezclaba menús, validaciones y datos. Ahora cada clase hace una sola cosa y se lee en una pantalla.
-- Que un refactor hay que verificarlo. En un commit moví los menús a otra clase y nunca los llamé, así que el programa arrancaba en una pantalla vacía. Para ordenar el proyecto grabé la salida de la versión original con entradas fijas y la comparé con la nueva, hasta que coincidieron (salvo los acentos y el bug corregido).
-- A leer la entrada del usuario siempre como texto y validarla, en vez de confiar en que escriba lo que se espera.
+- **Java estándar:** clases, objetos, listas y entrada/salida por consola, sin librerías externas.
+- **Bucles y condicionales:** los menús son bucles que se repiten hasta que el usuario sale, y cada opción se resuelve con un `switch`.
+- **Separar responsabilidades:** la primera versión tenía casi todo en una clase de 300 líneas que mezclaba menús, validaciones y datos. Ahora cada clase hace una sola cosa y se lee en una pantalla.
+- **Persistencia con un `.txt`:** escribir y volver a leer los datos para que no se pierdan al cerrar el programa, y qué hacer si el archivo viene dañado.
+- **Validar las entradas:** leer lo que escribe el usuario siempre como texto y comprobarlo, en vez de confiar en que escriba lo que se espera.
 
 **Mejoraría:**
 
-- **Contraseñas:** se guardan en texto plano en `datos.txt`. En algo real guardaría un hash con sal (por ejemplo PBKDF2) y nunca la contraseña.
+- **Contraseñas:** se guardan en texto plano en `datos.txt`. En algo real no guardaría la contraseña sino un hash con sal: una huella irreversible que permite comprobar si la contraseña es correcta sin poder recuperarla (por ejemplo con PBKDF2).
 - **Códigos repetidos:** hoy se pueden cargar dos libros con el mismo código. Lo validaría al cargar.
 - **Listado vacío:** si no hay libros, no muestra nada. Un mensaje como "No hay productos cargados" sería más claro.
 - **Tests:** agregaría pruebas con JUnit para `RegistroUsuarios` (guardar, volver a leer, archivo dañado) y para la búsqueda de productos.

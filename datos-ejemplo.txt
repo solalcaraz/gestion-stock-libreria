@@ -1,0 +1,9 @@
+USUARIO	libreria_centro	centro2023
+PRODUCTO	978-950-07-3047-1	Rayuela	Julio Cortázar	Alfaguara	12
+PRODUCTO	978-950-04-3905-3	Ficciones	Jorge Luis Borges	Emecé	8
+PRODUCTO	978-987-566-013-0	El túnel	Ernesto Sabato	Seix Barral	5
+PRODUCTO	978-950-49-0386-4	Martín Fierro	José Hernández	Planeta	20
+USUARIO	libreria_sur	sur2023
+PRODUCTO	978-950-07-1245-3	Cien años de soledad	Gabriel García Márquez	Sudamericana	7
+PRODUCTO	978-987-738-148-0	Las cosas que perdimos en el fuego	Mariana Enriquez	Anagrama	4
+PRODUCTO	978-950-49-5012-7	El Aleph	Jorge Luis Borges	Debolsillo	10
