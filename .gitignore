@@ -1,0 +1,6 @@
+bin/
+out/
+*.class
+
+# Datos locales de la app: guardan las contraseñas en texto plano
+datos.txt
