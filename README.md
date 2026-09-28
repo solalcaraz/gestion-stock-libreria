@@ -6,7 +6,7 @@ App de consola en Java para llevar el stock de una librería. Cada usuario tiene
 
 Una librería chica que anota el stock en papel o en una planilla suelta no sabe rápido cuántos ejemplares le quedan de un título, y las correcciones se pierden o se pisan. Hice una herramienta mínima para cargar, corregir, dar de baja y consultar libros desde la terminal, con una cuenta por usuario para que cada uno maneje su inventario.
 
-Fue mi proyecto final integrador del curso **Codo a Codo 4.0 – Programación Inicial con Java** (julio de 2023). Después lo retomé para pulir detalles.
+Fue mi proyecto final integrador del curso **Codo a Codo 4.0 – Programación Inicial con Java** (Gobierno de la Ciudad de Buenos Aires, 208 horas, julio de 2023). Después lo retomé para pulir detalles.
 
 ## Demo
 
